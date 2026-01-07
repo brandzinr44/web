@@ -32,7 +32,7 @@ const allProjects: Project[] = [
     industry: "FOOD & BEVERAGE",
     image: "https://bq45eawil9xlp5ci.public.blob.vercel-storage.com/Luvena01.jpg",
     slug: "luvena",
-    tags: ["Beauty", "Logo", "Packaging"],
+    tags: ["Pizza", "Food", "Packaging"],
   },
   {
     id: "3",
@@ -42,6 +42,15 @@ const allProjects: Project[] = [
     image: "https://q4bkxvdmgiqmmhbe.public.blob.vercel-storage.com/Frame%201.jpg",
     slug: "rijq",
     tags: ["Food", "Bakery", "Branding"],
+  },
+  {
+    id: "3",
+    title: "Cnyf",
+    category: "Crypto",
+    industry: "CRYPTO",
+    image: "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%208.jpg",
+    slug: "cnyf",
+    tags: ["Crypto", "Wallet", "Money"],
   },
 ]
 

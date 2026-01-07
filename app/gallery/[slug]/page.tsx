@@ -30,9 +30,7 @@ const projectsData: {
     description:
       "Lozinr's brand identity is built on the idea of turning bold concepts into clear, expressive forms. The logo was designed from the core elements of the brand name, where simple geometric shapes come together to form a human-like face — symbolising personality, creativity, and connection. Through motion, typography, and a shape-driven visual system, the identity feels alive and approachable. Carefully placed yellow accents add warmth, energy, and optimism, reinforcing Lozinr's belief in breathing life into design. The result is a modern, cohesive brand system that balances structure with emotion.",
     results: [
-      { label: "Branding Agency", value: "Category" },
-      { label: "Branding", value: "Category" },
-      { label: "Web Development", value: "Category" },
+      
     ],
     featuredImage: "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Lozinr-01.jpg",
     images: [
@@ -49,15 +47,12 @@ const projectsData: {
   rijq: {
     title: "Rijq",
     category: "FOOD & BEVERAGE",
-    client: "Rijq Restaurant",
+    client: "Logo & Branding",
     year: "2023",
     services: ["Logo & Branding", "Packaging Design"],
     description:
       "An elegant brand identity for a premium restaurant experience. We crafted a sophisticated visual language that speaks to culinary excellence and cultural authenticity.",
     results: [
-      { label: "Customer Footfall", value: "+140%" },
-      { label: "Social Media Growth", value: "+220%" },
-      { label: "Brand Recall", value: "92%" },
     ],
     featuredImage: "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Rijq-01.jpg",
     images: [
@@ -72,21 +67,45 @@ const projectsData: {
   luvena: {
     title: "Luvena",
     category: "BEAUTY & LIFESTYLE",
-    client: "Luvena Beauty",
+    client: "Logo & Branding",
     year: "2024",
     services: ["Logo Design", "Brand Strategy", "Packaging"],
     description:
       "A luxurious brand identity for a premium beauty brand. We created an elegant visual system that combines sophistication with modern femininity, reflecting the brand's commitment to quality and innovation.",
     results: [
-      { label: "Brand Launches", value: "3" },
-      { label: "Market Reach", value: "+180%" },
-      { label: "Customer Satisfaction", value: "98%" },
+      
     ],
-    featuredImage: "https://bq45eawil9xlp5ci.public.blob.vercel-storage.com/Luvena01.jpg",
+    featuredImage: "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-01.jpg",
     images: [
-      "https://bq45eawil9xlp5ci.public.blob.vercel-storage.com/Luvena02.jpg",
-      "https://bq45eawil9xlp5ci.public.blob.vercel-storage.com/Luvena03.jpg",
-      "https://bq45eawil9xlp5ci.public.blob.vercel-storage.com/Luvena04.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-01.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-02.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-03.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-04.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-05.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-06.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-07.jpg",
+    ],
+    },
+  cnyf: {
+    title: "Cnyf",
+    category: "Crypto",
+    client: "Logo & Branding",
+    year: "2025",
+    services: ["Logo Design", "Brand Strategy", "Packaging"],
+    description:
+      "A luxurious brand identity for a premium beauty brand. We created an elegant visual system that combines sophistication with modern femininity, reflecting the brand's commitment to quality and innovation.",
+    results: [
+      
+    ],
+    featuredImage: "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%208.jpg",
+    images: [
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%201.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%202.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%203.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%204.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%205.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%206.jpg",
+      "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%209.jpg",
     ],
   },
 }
