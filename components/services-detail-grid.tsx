@@ -79,7 +79,6 @@ function ServiceSection({ service, isLast }: { service: Service; isLast: boolean
               {service.description}
             </p>
           </div>
-
           
         </div>
 
@@ -120,7 +119,20 @@ function ServiceSection({ service, isLast }: { service: Service; isLast: boolean
           <p className="text-lg uppercase leading-relaxed text-chart-5">{service.description}</p>
         </div>
 
-        
+        <div className="px-3 p-8 pt-4">
+          
+        </div>
+
+        {/* Features */}
+        <div className="px-3 p-8 pt-8">
+          <ul className="divide-y divide-[#888]">
+            {service.features.map((feature, index) => (
+              <li key={index} className="text-sm uppercase text-chart-5 flex gap-3 leading-relaxed items-start py-3">
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* CTA Button */}
         <div className="px-3 p-8 pt-8">
