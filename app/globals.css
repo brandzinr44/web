@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 /* Updated custom variant syntax to properly apply dark mode styles to all elements */
-@custom-variant dark (&:where(.dark *));
+@custom-variant white (&:where(.dark *));
 
 :root {
   /* Simplified to black and white only - light theme defaults */

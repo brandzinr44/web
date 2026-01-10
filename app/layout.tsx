@@ -4,7 +4,6 @@ import "./globals.css"
 import { Geist, Geist_Mono } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ClientLayoutContent } from "./client-layout-content"
-import { CursorGlow } from "@/components/cursor-glow" // Added import for CursorGlow component
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -105,7 +104,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className={`font-sans antialiased overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem storageKey="theme">
-          <CursorGlow />
           <ClientLayoutContent>{children}</ClientLayoutContent>
         </ThemeProvider>
       </body>

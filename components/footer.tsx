@@ -28,7 +28,7 @@ function AnimatedLink({ href, children }: { href: string; children: string }) {
   const letters = children.split("")
 
   return (
-    <a href={href} className="animated-text-link text-chart-5 text-[14px] group flex items-center gap-2">
+    <a href={href} className="animated-text-link text-background text-[14px] group flex items-center gap-2">
       <span className="text-swap-container">
         <span className="text-layer text-layer-primary">
           {letters.map((letter, index) => (
@@ -54,7 +54,7 @@ function AnimatedLinkMobile({ href, children }: { href: string; children: string
   const letters = children.split("")
 
   return (
-    <a href={href} className="animated-text-link text-chart-5 text-[14px] group flex items-center gap-2">
+    <a href={href} className="animated-text-link text-background text-[14px] group flex items-center gap-2">
       <span className="text-swap-container">
         <span className="text-layer text-layer-primary">
           {letters.map((letter, index) => (
@@ -80,7 +80,7 @@ function AnimatedEmailLink({ href, children }: { href: string; children: string 
   const letters = children.split("")
 
   return (
-    <a href={href} className="animated-text-link text-chart-5 text-[14px] font-medium inline-flex">
+    <a href={href} className="animated-text-link text-background text-[14px] font-medium inline-flex">
       <span className="text-swap-container">
         <span className="text-layer text-layer-primary">
           {letters.map((letter, index) => (
@@ -105,7 +105,7 @@ function NavLink({ href, children }: { href: string; children: string }) {
   const letters = children.split("")
 
   return (
-    <Link href={href} className="animated-text-link text-chart-5 text-[14px]">
+    <Link href={href} className="animated-text-link text-background text-[14px]">
       <span className="text-swap-container">
         <span className="text-layer text-layer-primary">
           {letters.map((letter, index) => (
@@ -130,7 +130,7 @@ function NavLinkMobile({ href, children }: { href: string; children: string }) {
   const letters = children.split("")
 
   return (
-    <Link href={href} className="animated-text-link text-chart-5 text-[14px]">
+    <Link href={href} className="animated-text-link text-background text-[14px]">
       <span className="text-swap-container">
         <span className="text-layer text-layer-primary">
           {letters.map((letter, index) => (
@@ -199,7 +199,7 @@ export function Footer() {
   }, [])
 
   return (
-    <footer className="bg-background text-black transition-colors duration-300" ref={footerRef}>
+    <footer className="bg-chart-5 text-black transition-colors duration-300" ref={footerRef}>
       <style>{`
         @keyframes slideUpLetterSmooth {
           0% {
@@ -352,20 +352,20 @@ export function Footer() {
         {/* Mobile Layout */}
         <div className="lg:hidden flex flex-col gap-8">
           <div className="w-full">
-            <h2 className="text-[48px] font-regular text-chart-5 tracking-tighter leading-none mb-5">
+            <h2 className="text-[48px] font-regular text-background tracking-tighter leading-none mb-5">
               Great Design.
               <br />
               Strong Brands
             </h2>
 
             <Link href="/contact">
-              <button className="cta-button w-full bg-chart-5 text-[16px] text-background px-8 py-4 font-medium transition-colors duration-300 mb-8">
+              <button className="cta-button w-full bg-background text-[16px] text-chart-5 px-8 py-4 font-medium transition-colors duration-300 mb-8">
                 <span className="cta-button-text">Let's Talk</span>
               </button>
             </Link>
 
             <div className="text-[16px]">
-              <p className="text-chart-5 mb-1">New Business :</p>
+              <p className="text-background mb-1">New Business :</p>
               <AnimatedEmailLink href="mailto:lozinrcontact@gmail.com">lozinrcontact@gmail.com</AnimatedEmailLink>
             </div>
           </div>
@@ -379,7 +379,7 @@ export function Footer() {
                 <NavLinkMobile href="/contact">CONTACT</NavLinkMobile>
                 <NavLinkMobile href="/services">SERVICES</NavLinkMobile>
               </div>
-              <div className="mt-12 text-chart-5 text-[14px]">
+              <div className="mt-12 text-background text-[14px]">
                 <p>Dhaka</p>
                 <p>Bangladesh, Asia</p>
               </div>
@@ -393,7 +393,7 @@ export function Footer() {
                 <AnimatedLinkMobile href="https://web.facebook.com/brandzinr">FACEBOOK</AnimatedLinkMobile>
                 <AnimatedLinkMobile href="https://www.instagram.com/adnanakifdesign/">INSTAGRAM</AnimatedLinkMobile>
               </div>
-              <div className="mt-18 text-chart-5 flex flex-col gap-1">
+              <div className="mt-18 text-background flex flex-col gap-1">
                 <NavLinkMobile href="/terms">Terms & Conditions</NavLinkMobile>
                 <NavLinkMobile href="/privacy">Privacy Policy</NavLinkMobile>
               </div>
@@ -404,18 +404,18 @@ export function Footer() {
         {/* Desktop Layout */}
         <div className="hidden lg:flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16 justify-between">
           <div className="w-full lg:w-max-full">
-            <h2 className="text-4xl md:text-5xl lg:text-[48px] text-chart-5 font-regular tracking-tighter leading-tight mb-5 whitespace-nowrap">
+            <h2 className="text-4xl md:text-5xl lg:text-[48px] text-background font-regular tracking-tighter leading-tight mb-5 whitespace-nowrap">
               Great Design. Strong Brands
             </h2>
 
             <Link href="/contact">
-              <button className="cta-button w-full md:w-xl bg-chart-5 text-[16px] text-background px-8 md:px-16 py-4 md:py-4 font-medium transition-colors duration-300 mb-8">
+              <button className="cta-button w-full md:w-xl bg-background text-[16px] text-chart-5 px-8 md:px-16 py-4 md:py-4 font-medium transition-colors duration-300 mb-8">
                 <span className="cta-button-text">Let's Talk</span>
               </button>
             </Link>
 
             <div className="text-[16px]">
-              <p className="text-chart-5 mb-1">New Business :</p>
+              <p className="text-background mb-1">New Business :</p>
               <AnimatedEmailLink href="mailto:lozinrcontact@gmail.com">lozinrcontact@gmail.com</AnimatedEmailLink>
             </div>
           </div>
@@ -430,7 +430,7 @@ export function Footer() {
                   <NavLink href="/contact">CONTACT</NavLink>
                   <NavLink href="/services">SERVICES</NavLink>
                 </div>
-                <div className="mt-12 text-chart-5 text-[14px]">
+                <div className="mt-12 text-background text-[14px]">
                   <p>Dhaka</p>
                   <p>Bangladesh, Asia</p>
                 </div>
@@ -445,7 +445,7 @@ export function Footer() {
                   <AnimatedLink href="https://x.com/adnandzinr">TWITTER</AnimatedLink>
                   <AnimatedLink href="mailto:adnanakif.co@email.com">EMAIL</AnimatedLink>
                 </div>
-                <div className="text-chart-5 mt-12 flex flex-col gap-1">
+                <div className="text-background mt-12 flex flex-col gap-1">
                   <NavLink href="/terms">Terms & Conditions</NavLink>
                   <NavLink href="/privacy">Privacy Policy</NavLink>
                 </div>
