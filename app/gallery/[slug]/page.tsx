@@ -1,8 +1,6 @@
 "use client"
-
-import type React from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { useEffect, useState, useRef } from "react"
+import { motion } from "framer-motion"
+import { useState, useRef } from "react"
 import { useRouter, useParams } from "next/navigation"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import Link from "next/link"
@@ -29,9 +27,7 @@ const projectsData: {
     services: ["Complete Rebrand", "Web Design", "Marketing"],
     description:
       "Lozinr's brand identity is built on the idea of turning bold concepts into clear, expressive forms. The logo was designed from the core elements of the brand name, where simple geometric shapes come together to form a human-like face — symbolising personality, creativity, and connection. Through motion, typography, and a shape-driven visual system, the identity feels alive and approachable. Carefully placed yellow accents add warmth, energy, and optimism, reinforcing Lozinr's belief in breathing life into design. The result is a modern, cohesive brand system that balances structure with emotion.",
-    results: [
-      
-    ],
+    results: [],
     featuredImage: "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Lozinr-01.jpg",
     images: [
       "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Lozinr-02.jpg",
@@ -52,8 +48,7 @@ const projectsData: {
     services: ["Logo & Branding", "Packaging Design"],
     description:
       "An elegant brand identity for a premium restaurant experience. We crafted a sophisticated visual language that speaks to culinary excellence and cultural authenticity.",
-    results: [
-    ],
+    results: [],
     featuredImage: "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Rijq-01.jpg",
     images: [
       "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Rijq-02.jpg",
@@ -72,9 +67,7 @@ const projectsData: {
     services: ["Logo Design", "Brand Strategy", "Packaging"],
     description:
       "A luxurious brand identity for a premium beauty brand. We created an elegant visual system that combines sophistication with modern femininity, reflecting the brand's commitment to quality and innovation.",
-    results: [
-      
-    ],
+    results: [],
     featuredImage: "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-01.jpg",
     images: [
       "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-01.jpg",
@@ -85,7 +78,7 @@ const projectsData: {
       "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-06.jpg",
       "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Luvena-07.jpg",
     ],
-    },
+  },
   cnyf: {
     title: "Cnyf",
     category: "Crypto",
@@ -94,9 +87,7 @@ const projectsData: {
     services: ["Logo Design", "Brand Strategy", "Packaging"],
     description:
       "A luxurious brand identity for a premium beauty brand. We created an elegant visual system that combines sophistication with modern femininity, reflecting the brand's commitment to quality and innovation.",
-    results: [
-      
-    ],
+    results: [],
     featuredImage: "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%208.jpg",
     images: [
       "https://guxjkdyjeyrscewv.public.blob.vercel-storage.com/Frame%201.jpg",
@@ -113,7 +104,6 @@ const projectsData: {
 const allProjectKeys = Object.keys(projectsData)
 
 export default function ProjectGalleryPage() {
-  const [isLoading, setIsLoading] = useState(true)
   const [showShareMenu, setShowShareMenu] = useState(false)
   const [relatedIndex, setRelatedIndex] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
@@ -134,119 +124,10 @@ export default function ProjectGalleryPage() {
   const relatedProjects = allProjectKeys.filter((key) => key !== slug)
   const [itemsPerView, setItemsPerView] = useState(3)
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerView(1)
-      } else if (window.innerWidth < 1024) {
-        setItemsPerView(2)
-      } else {
-        setItemsPerView(3)
-      }
-    }
-
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  const maxIndex = Math.max(0, relatedProjects.length - itemsPerView)
-
-  const handlePrevRelated = () => {
-    setRelatedIndex((prev) => Math.max(0, prev - 1))
-  }
-
-  const handleNextRelated = () => {
-    setRelatedIndex((prev) => Math.min(maxIndex, prev + 1))
-  }
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true)
-    setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0))
-    setScrollLeft(relatedIndex)
-  }
-
-  const handleMouseUp = () => {
-    setIsDragging(false)
-  }
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return
-    e.preventDefault()
-    const x = e.pageX - (carouselRef.current?.offsetLeft || 0)
-    const walk = (startX - x) / 200
-    const newIndex = Math.round(scrollLeft + walk)
-    setRelatedIndex(Math.max(0, Math.min(maxIndex, newIndex)))
-  }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    setRelatedIndex(0)
-  }, [slug])
-
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: projectData.title,
-          text: projectData.description,
-          url: window.location.href,
-        })
-      } catch (err) {
-        console.log("Error sharing:", err)
-      }
-    } else {
-      setShowShareMenu(!showShareMenu)
-    }
-  }
-
-  if (!projectData) {
-    return (
-      <main className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-white text-center">
-          <h1 className="text-2xl font-regular mb-4">Project not found</h1>
-          <button onClick={() => router.back()} className="px-4 py-2 text-black">
-            Go Back
-          </button>
-        </div>
-      </main>
-    )
-  }
-
   return (
     <main className="min-h-screen bg-background">
-      {/* Loading Animation */}
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="fixed inset-0 bg-black z-50 flex items-center justify-center"
-          >
-            <div className="flex flex-col items-center gap-8">
-              <div className="relative w-12 h-12">
-                <motion.div
-                  className="absolute inset-0 rounded-full border-2 border-white/20 border-t-white"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                />
-                <div className="absolute inset-1 rounded-full border border-white/10" />
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Gallery Content */}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: isLoading ? 0 : 1 }} transition={{ duration: 0.5 }}>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
         <div className="relative w-full aspect-[16/9] md:aspect-[4/6] lg:aspect-[16/9] overflow-hidden">
           <motion.img
             src={projectData.featuredImage || "/placeholder.svg?height=1440&width=1080&query=featured project"}
@@ -392,7 +273,7 @@ export default function ProjectGalleryPage() {
               </h3>
               <div className="flex items-center gap-1">
                 <button
-                  onClick={handlePrevRelated}
+                  onClick={() => setRelatedIndex((prev) => Math.max(0, prev - 1))}
                   disabled={relatedIndex === 0}
                   className={`lg:w-8 lg:h-8 w-7 h-7 rounded-full bg-white flex items-center justify-center text-black transition-all duration-300 ${
                     relatedIndex === 0
@@ -404,10 +285,12 @@ export default function ProjectGalleryPage() {
                   <ArrowLeft size={22} strokeWidth={1.8} />
                 </button>
                 <button
-                  onClick={handleNextRelated}
-                  disabled={relatedIndex >= maxIndex}
+                  onClick={() =>
+                    setRelatedIndex((prev) => Math.min(Math.max(0, relatedProjects.length - itemsPerView), prev + 1))
+                  }
+                  disabled={relatedIndex >= Math.max(0, relatedProjects.length - itemsPerView)}
                   className={`lg:w-8 lg:h-8 w-7 h-7 rounded-full bg-white flex items-center justify-center text-black transition-all duration-300 ${
-                    relatedIndex >= maxIndex
+                    relatedIndex >= Math.max(0, relatedProjects.length - itemsPerView)
                       ? "bg-white text-black cursor-pointer"
                       : "hover:bg-white/60 hover:text-black/60 cursor-pointer"
                   }`}
@@ -419,14 +302,7 @@ export default function ProjectGalleryPage() {
             </div>
 
             {/* Carousel */}
-            <div
-              ref={carouselRef}
-              className="overflow-hidden cursor-grab active:cursor-grabbing"
-              onMouseDown={handleMouseDown}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              onMouseMove={handleMouseMove}
-            >
+            <div ref={carouselRef} className="overflow-hidden cursor-grab active:cursor-grabbing">
               <div
                 className="flex gap-6 transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
                 style={{

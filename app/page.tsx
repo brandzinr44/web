@@ -3,7 +3,6 @@ import { Hero } from "@/components/hero"
 import { ProjectThumbnails } from "@/components/project-thumbnails"
 import { ServicesSection } from "@/components/services-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
-import { LoadingReveal } from "@/components/loading-reveal"
 
 export const metadata: Metadata = {
   title: "Lozinr | Logo & Brand Identity Design Agency",
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-background transition-colors duration-300">
-      <LoadingReveal />
+      {/* LoadingReveal component removed */}
       <Hero />
       <ProjectThumbnails />
       <ServicesSection />

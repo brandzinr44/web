@@ -78,8 +78,6 @@ export default function AboutClient() {
           location="Latitude: 23.4607° N Longitude: 91.1809° E"
         />
 
-        
-
         {/* Divider */}
         <div className="pt-10 lg:pt-15">
           <div className="max-w-full mx-auto h-px bg-chart-5/20" />
@@ -283,7 +281,9 @@ export default function AboutClient() {
                       target={social.href.startsWith("http") ? "_blank" : undefined}
                       rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     >
-                      <span className="text-[16px] lg:text-[18px] text-chart-5 font-medium tracking-tight">{social.label}</span>
+                      <span className="text-[16px] lg:text-[18px] text-chart-5 font-medium tracking-tight">
+                        {social.label}
+                      </span>
                       <svg
                         width="16"
                         height="16"

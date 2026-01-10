@@ -2,32 +2,15 @@
 
 import type React from "react"
 
-import { useEffect, useState, useRef } from "react"
+import { useState, useRef } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
 export default function GalleryClientPage() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [isExiting, setIsExiting] = useState(false)
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const router = useRouter()
-
-  useEffect(() => {
-    const exitTimer = setTimeout(() => {
-      setIsExiting(true)
-    }, 400)
-
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 700)
-
-    return () => {
-      clearTimeout(exitTimer)
-      clearTimeout(timer)
-    }
-  }, [])
 
   const projects = [
     {
@@ -74,22 +57,9 @@ export default function GalleryClientPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="fixed inset-0 bg-background z-50 flex items-center justify-center"
-          >
-            <div className="w-8 h-8 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 20 : 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="pt-20"
       >

@@ -3,7 +3,6 @@ import { Star, ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
-import { PageLoader } from "@/components/page-loader"
 
 interface Product {
   id: number
@@ -203,18 +202,16 @@ function ProductCard({ product }: { product: Product }) {
 
 export default function StorePage() {
   return (
-    <PageLoader>
-      <main className="min-h-screen bg-background">
-        <section className="py-20 px-3 sm:px-6 lg:px-8">
-          <div className="max-w-full mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+    <main className="min-h-screen bg-background">
+      <section className="py-20 px-3 sm:px-6 lg:px-8">
+        <div className="max-w-full mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
-        </section>
-      </main>
-    </PageLoader>
+        </div>
+      </section>
+    </main>
   )
 }
